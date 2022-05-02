@@ -1,0 +1,11 @@
+framework module GeoQSDK {
+  umbrella header "GeoQSDK.h"
+
+  export *
+  module * { export * }
+}
+
+module GeoQSDK.Swift {
+    header "GeoQSDK-Swift.h"
+    requires objc
+}

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "455535313346",
+    "project_id": "geoq-flutter",
+    "storage_bucket": "geoq-flutter.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:455535313346:android:7a393dc3faa5f31eced65b",
+        "android_client_info": {
+          "package_name": "es.geoq.geoq_example"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "455535313346-stbjk2shb13795fdce07sidcte75m3sk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAG2kC3376Y2vhjQ65AqZnlIWajMbP4Sno"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "455535313346-stbjk2shb13795fdce07sidcte75m3sk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,205 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.6 (swiftlang-5.6.0.323.62 clang-1316.0.20.8)
+// swift-module-flags: -target armv7-apple-ios9.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name GeoQSDK
+import AVFoundation
+import AdSupport
+import AppTrackingTransparency
+import CoreLocation
+import CoreTelephony
+import Foundation
+@_exported import GeoQSDK
+import ObjectiveC
+import QuartzCore
+import SafariServices
+import Swift
+import SystemConfiguration
+import UIKit
+import UserNotifications
+import WebKit
+import _Concurrency
+@_hasMissingDesignatedInitializers @objc public class FG_UserHabit : ObjectiveC.NSObject, Swift.Codable {
+  @objc public func getName() -> Swift.String
+  @objc public func getLevel() -> Swift.String
+  @objc deinit
+  public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
+}
+public enum GeoQYTPlayerState : Swift.String {
+  case Unstarted
+  case Ended
+  case Playing
+  case Paused
+  case Buffering
+  case Queued
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum GeoQYTPlayerEvents : Swift.String {
+  case YouTubeIframeAPIReady
+  case Ready
+  case StateChange
+  case PlaybackQualityChange
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum GeoQYTPlaybackQuality : Swift.String {
+  case Small
+  case Medium
+  case Large
+  case HD720
+  case HD1080
+  case HighResolution
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public protocol GeoQYTPlayerDelegate : AnyObject {
+  func playerReady(_ videoPlayer: GeoQSDK.GeoQYTPlayerView)
+  func playerStateChanged(_ videoPlayer: GeoQSDK.GeoQYTPlayerView, playerState: GeoQSDK.GeoQYTPlayerState)
+  func playerQualityChanged(_ videoPlayer: GeoQSDK.GeoQYTPlayerView, playbackQuality: GeoQSDK.GeoQYTPlaybackQuality)
+}
+extension GeoQSDK.GeoQYTPlayerDelegate {
+  public func playerReady(_ videoPlayer: GeoQSDK.GeoQYTPlayerView)
+  public func playerStateChanged(_ videoPlayer: GeoQSDK.GeoQYTPlayerView, playerState: GeoQSDK.GeoQYTPlayerState)
+  public func playerQualityChanged(_ videoPlayer: GeoQSDK.GeoQYTPlayerView, playbackQuality: GeoQSDK.GeoQYTPlaybackQuality)
+}
+public func videoIDFromYouTubeURL(_ videoURL: Foundation.URL) -> Swift.String?
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class GeoQYTPlayerView : UIKit.UIView, WebKit.WKNavigationDelegate {
+  public typealias GeoQYTPlayerParameters = [Swift.String : Swift.AnyObject]
+  @_Concurrency.MainActor(unsafe) public var baseURL: Swift.String
+  @_Concurrency.MainActor(unsafe) open var ready: Swift.Bool {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) open var playerState: GeoQSDK.GeoQYTPlayerState {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) open var playbackQuality: GeoQSDK.GeoQYTPlaybackQuality {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) open var playerVars: GeoQSDK.GeoQYTPlayerView.GeoQYTPlayerParameters
+  @_Concurrency.MainActor(unsafe) weak open var delegate: GeoQSDK.GeoQYTPlayerDelegate?
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func layoutSubviews()
+  @_Concurrency.MainActor(unsafe) open func loadVideoURL(_ videoURL: Foundation.URL)
+  @_Concurrency.MainActor(unsafe) open func loadVideoID(_ videoID: Swift.String)
+  @_Concurrency.MainActor(unsafe) open func loadPlaylistID(_ playlistID: Swift.String)
+  @_Concurrency.MainActor(unsafe) open func mute()
+  @_Concurrency.MainActor(unsafe) open func unMute()
+  @_Concurrency.MainActor(unsafe) open func play()
+  @_Concurrency.MainActor(unsafe) open func pause()
+  @_Concurrency.MainActor(unsafe) open func stop()
+  @_Concurrency.MainActor(unsafe) open func clear()
+  @_Concurrency.MainActor(unsafe) open func seekTo(_ seconds: Swift.Float, seekAhead: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) open func getDuration(completion: ((Swift.Double?) -> Swift.Void)? = nil)
+  @_Concurrency.MainActor(unsafe) open func getCurrentTime(completion: ((Swift.Double?) -> Swift.Void)? = nil)
+  @_Concurrency.MainActor(unsafe) open func previousVideo()
+  @_Concurrency.MainActor(unsafe) open func nextVideo()
+  @_Concurrency.MainActor(unsafe) @objc open func webView(_ webView: WebKit.WKWebView, decidePolicyFor navigationAction: WebKit.WKNavigationAction, decisionHandler: @escaping (WebKit.WKNavigationActionPolicy) -> Swift.Void)
+  @objc deinit
+}
+extension UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) public func showGeoQToast(_ GeoQToast: UIKit.UIView, duration: Foundation.TimeInterval, point: CoreGraphics.CGPoint, completion: ((_ didTap: Swift.Bool) -> Swift.Void)? = nil)
+  @_Concurrency.MainActor(unsafe) public func hideGeoQToast()
+  @_Concurrency.MainActor(unsafe) public func hideGeoQToast(_ GeoQToast: UIKit.UIView)
+  @_Concurrency.MainActor(unsafe) public func hideAllGeoQToasts(includeActivity: Swift.Bool = false, clearQueue: Swift.Bool = true)
+  @_Concurrency.MainActor(unsafe) public func clearGeoQToastQueue()
+  @_Concurrency.MainActor(unsafe) public func makeGeoQToastActivity(_ point: CoreGraphics.CGPoint)
+  @_Concurrency.MainActor(unsafe) public func hideGeoQToastActivity()
+}
+public enum GeoQReachabilityError : Swift.Error {
+  case failedToCreateWithAddress(Darwin.sockaddr, Swift.Int32)
+  case failedToCreateWithHostname(Swift.String, Swift.Int32)
+  case unableToSetCallback(Swift.Int32)
+  case unableToSetDispatchQueue(Swift.Int32)
+  case unableToGetFlags(Swift.Int32)
+}
+@available(*, unavailable, renamed: "Notification.Name.GeoQReachabilityChanged")
+public let GeoQReachabilityChangedNotification: Foundation.NSNotification.Name
+extension Foundation.NSNotification.Name {
+  public static let GeoQReachabilityChanged: Foundation.Notification.Name
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class GeoQManager : ObjectiveC.NSObject, SafariServices.SFSafariViewControllerDelegate {
+  @objc public func registerDevice(appKey: Swift.String, andPlatform urlPlatform: Swift.String, trackingActive: Swift.Bool, completion completionHandler: @escaping (_ idDispositivo: Swift.String?) -> Swift.Void)
+  @objc public func setNotificationsToken(notificationsToken: Swift.String?, completion completionHandler: @escaping (_ result: Swift.Bool) -> Swift.Void)
+  @objc public func setDataNotificationsToken(deviceToken: Foundation.Data?, completion completionHandler: @escaping (_ result: Swift.Bool) -> Swift.Void)
+  @objc public func handlePushNotification(userInfo: [Swift.String : Swift.AnyObject]?)
+  @objc public func legalPermissions()
+  @objc public func getUserPermission(_ permission: Swift.String?, completion completionHandler: @escaping (_ permissionValue: Swift.String?) -> Swift.Void)
+  @objc public func setUserPermission(permission: Swift.String, value set: Swift.Bool, completion completionHandler: @escaping (_ result: Swift.Bool) -> Swift.Void)
+  @objc public func getUserProfile(_ completionHandler: @escaping (_ arrParameters: [GeoQSDK.FG_UserHabit]?) -> Swift.Void)
+  @objc public func updateExtraData(strExtraData: Swift.String?, completion completionHandler: @escaping (_ response: Swift.String?) -> Swift.Void)
+  @objc public func listGroups(_ completionHandler: @escaping (_ groups: [GeoQSDK.FG_GroupData]?) -> Swift.Void)
+  @objc public func subscriptionGroups(_ completionHandler: @escaping (_ groups: [GeoQSDK.FG_GroupData]?) -> Swift.Void)
+  @objc public func joinGroup(_ idGroup: Swift.String?, completion completionHandler: @escaping (_ result: Swift.Bool) -> Swift.Void)
+  @objc public func leaveGroup(_ idGroup: Swift.String?, completion completionHandler: @escaping (_ result: Swift.Bool) -> Swift.Void)
+  @objc public func findGroups(byName name: Swift.String?, completion completionHandler: @escaping (_ groups: [GeoQSDK.FG_GroupData]?) -> Swift.Void)
+  @objc public class func sharedManager() -> GeoQSDK.GeoQManager?
+  @objc public func getDeviceID() -> Swift.String?
+  @objc deinit
+  @objc public func getAdIdWithPermissionWithCompletion(_ completionHandler: @escaping (_ adId: Swift.String) -> Swift.Void)
+  @objc public func checkUserLocation(completionHandler: @escaping ([Swift.String : Swift.String]?) -> Swift.Void)
+  @objc public func safariViewController(_ controller: SafariServices.SFSafariViewController, didCompleteInitialLoad didLoadSuccessfully: Swift.Bool)
+  @objc public func safariViewControllerDidFinish(_ controller: SafariServices.SFSafariViewController)
+}
+@_hasMissingDesignatedInitializers @objc public class FG_GroupData : ObjectiveC.NSObject, Swift.Codable {
+  @objc deinit
+  public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
+}
+extension Foundation.UserDefaults {
+  open func setData<T>(_ value: T?, forKey defaultName: Swift.String) where T : Swift.Decodable, T : Swift.Encodable
+  open func getData<T>(_ type: T.Type, forKey defaultName: Swift.String) -> T? where T : Swift.Decodable
+  open func setDataArray<T>(_ value: [T], forKey defaultName: Swift.String) where T : Swift.Decodable, T : Swift.Encodable
+  open func getDataArray<T>(_ type: T.Type, forKey defaultName: Swift.String) -> [T] where T : Swift.Decodable
+}
+public struct GeoQGeohash {
+  public static func decode(hash: Swift.String) -> (latitude: (min: Swift.Double, max: Swift.Double), longitude: (min: Swift.Double, max: Swift.Double))?
+  public static func encode(latitude: Swift.Double, longitude: Swift.Double, length: Swift.Int) -> Swift.String
+}
+extension GeoQSDK.GeoQGeohash {
+  public enum Precision : Swift.Int {
+    case twentyFiveHundredKilometers
+    case sixHundredThirtyKilometers
+    case seventyEightKilometers
+    case twentyKilometers
+    case twentyFourHundredMeters
+    case sixHundredTenMeters
+    case seventySixMeters
+    case nineteenMeters
+    case twoHundredFourtyCentimeters
+    case sixtyCentimeters
+    case seventyFourMillimeters
+    public init?(rawValue: Swift.Int)
+    public typealias RawValue = Swift.Int
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  public static func encode(latitude: Swift.Double, longitude: Swift.Double, precision: GeoQSDK.GeoQGeohash.Precision) -> Swift.String
+}
+extension CoreLocation.CLLocationCoordinate2D {
+  public init(geohash: Swift.String)
+  public func geoqGeohash(length: Swift.Int) -> Swift.String
+  public func geoqGeohash(precision: GeoQSDK.GeoQGeohash.Precision) -> Swift.String
+}
+extension GeoQSDK.GeoQYTPlayerState : Swift.Equatable {}
+extension GeoQSDK.GeoQYTPlayerState : Swift.Hashable {}
+extension GeoQSDK.GeoQYTPlayerState : Swift.RawRepresentable {}
+extension GeoQSDK.GeoQYTPlayerEvents : Swift.Equatable {}
+extension GeoQSDK.GeoQYTPlayerEvents : Swift.Hashable {}
+extension GeoQSDK.GeoQYTPlayerEvents : Swift.RawRepresentable {}
+extension GeoQSDK.GeoQYTPlaybackQuality : Swift.Equatable {}
+extension GeoQSDK.GeoQYTPlaybackQuality : Swift.Hashable {}
+extension GeoQSDK.GeoQYTPlaybackQuality : Swift.RawRepresentable {}
+extension GeoQSDK.GeoQGeohash.Precision : Swift.Equatable {}
+extension GeoQSDK.GeoQGeohash.Precision : Swift.Hashable {}
+extension GeoQSDK.GeoQGeohash.Precision : Swift.RawRepresentable {}

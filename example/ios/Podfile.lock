@@ -1,0 +1,22 @@
+PODS:
+  - Flutter (1.0.0)
+  - geoq (1.0.0):
+    - Flutter
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - geoq (from `.symlinks/plugins/geoq/ios`)
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  geoq:
+    :path: ".symlinks/plugins/geoq/ios"
+
+SPEC CHECKSUMS:
+  Flutter: 50d75fe2f02b26cc09d224853bb45737f8b3214a
+  geoq: c542662fd22f350f66e67be290a2264c224dd758
+
+PODFILE CHECKSUM: 172db3f4c81e01514845a0277673e812d63f1cda
+
+COCOAPODS: 1.11.2
